@@ -1,0 +1,12 @@
+{
+  "name": "awenphotonics-website",
+  "version": "1.0.0",
+  "description": "Build tools for the awenphotonics.github.io static site",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "npx http-server dist -p 8080 --silent"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
