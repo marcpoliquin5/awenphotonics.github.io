@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions - Awen</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+        .hero-text {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .solution-card {
+            transition: all 0.3s ease;
+        }
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+    <div id="vanta-bg" class="fixed inset-0 z-0"></div>
+    
+    <!-- Navigation -->
+    <nav class="relative z-10 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="cpu" class="h-8 w-8 text-blue-600"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">Awen</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="products.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Products</a>
+                        <a href="solutions.html" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Solutions</a>
+                        <a href="research.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Research</a>
+                        <a href="contact.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded="false">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Solutions Hero Section -->
+    <section class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 gradient-bg">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl font-extrabold text-white hero-text sm:text-5xl md:text-6xl">
+                <span class="block">Industry-Specific</span>
+                <span class="block text-blue-300">Quantum Solutions</span>
+            </h1>
+            <p class="mt-3 max-w-md mx-auto text-lg text-gray-100 sm:text-xl md:mt-5 md:max-w-3xl">
+                Our photonic quantum computing solutions deliver practical advantages across industries facing computational limits.
+            </p>
+        </div>
+    </section>
+
+    <!-- Solutions Grid -->
+    <section class="relative z-10 py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Pharmaceutical Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="pharmaceutical">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="activity" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Pharmaceutical Research</h3>
+                                <p class="mt-1 text-sm text-gray-500">Molecular simulation & drug discovery</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Accelerate molecular dynamics simulations by 100x compared to classical supercomputers.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Protein folding simulations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Drug interaction modeling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Molecular property prediction</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="financial">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="dollar-sign" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Financial Services</h3>
+                                <p class="mt-1 text-sm text-gray-500">Portfolio optimization & risk analysis</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Solve complex financial optimization problems in seconds rather than hours.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Portfolio optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Fraud detection</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Option pricing models</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Climate Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="climate">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="cloud" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Climate Modeling</h3>
+                                <p class="mt-1 text-sm text-gray-500">Atmospheric & environmental simulations</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Enable high-resolution climate models with quantum-enhanced fluid dynamics.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Carbon capture modeling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Weather pattern prediction</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Material science for green tech</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Logistics Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="logistics">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="truck" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Logistics Optimization</h3>
+                                <p class="mt-1 text-sm text-gray-500">Route planning & supply chain</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Solve complex routing problems with thousands of variables in real-time.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Vehicle routing</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Inventory optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Warehouse automation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="ai">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="eye" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Quantum AI</h3>
+                                <p class="mt-1 text-sm text-gray-500">Machine learning acceleration</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Train neural networks exponentially faster with quantum-enhanced algorithms.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Quantum neural networks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Feature space exploration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Optimization problems</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Materials Solution -->
+                <div class="solution-card bg-white rounded-lg shadow-md overflow-hidden" id="materials">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-500 rounded-md p-3">
+                                <i data-feather="box" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Materials Science</h3>
+                                <p class="mt-1 text-sm text-gray-500">New material discovery</p>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <p class="text-base text-gray-600">
+                                Simulate quantum materials and chemical properties with unprecedented accuracy.
+                            </p>
+                            <ul class="mt-4 space-y-2">
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Battery materials</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Superconductors</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i data-feather="check" class="h-4 w-4 text-green-500 mt-1 mr-2"></i>
+                                    <span class="text-sm text-gray-600">Catalyst design</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="relative z-10 py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Case Studies</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Real-World Impact
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    See how industry leaders are using Awen's photonic quantum solutions today.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <i data-feather="activity"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Pharma Breakthrough</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Reduced drug discovery timeline from 5 years to 18 months for a top-10 pharmaceutical company.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <i data-feather="dollar-sign"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Financial Innovation</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Enabled a hedge fund to identify arbitrage opportunities 12x faster than competitors.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <i data-feather="cloud"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Climate Research</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Improved climate model resolution by 8x for a national weather service.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                            <i data-feather="truck"></i>
+                        </div>
+                        <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Logistics Optimization</p>
+                        <p class="mt-2 ml-16 text-base text-gray-500">
+                            Reduced delivery fleet fuel consumption by 23% while maintaining service levels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative z-10 gradient-bg py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+                <span class="block">Ready to explore what quantum can do for you?</span>
+                <span class="block text-blue-300 mt-2">Contact our solutions team today.</span>
+            </h2>
+            <div class="mt-8 flex justify-center">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="contact.html" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50">
+                        Get Started
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 bg-opacity-60 hover:bg-opacity-70">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 bg-gray-900">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+                <div class="space-y-8 xl:col-span-1">
+                    <div class="flex items-center">
+                        <i data-feather="cpu" class="h-8 w-8 text-blue-400"></i>
+                        <span class="ml-2 text-xl font-bold text-white">Awen</span>
+                    </div>
+                    <p class="text-gray-300 text-base">
+                        Building the software infrastructure for the post-silicon era of computing. Pioneering research in quantum photonics, topological quantum computing, and boson sampling.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Solutions</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#pharmaceutical" class="text-base text-gray-400 hover:text-white">Pharmaceutical</a>
+                                </li>
+                                <li>
+                                    <a href="#financial" class="text-base text-gray-400 hover:text-white">Financial</a>
+                                </li>
+                                <li>
+                                    <a href="#climate" class="text-base text-gray-400 hover:text-white">Climate</a>
+                                </li>
+                                <li>
+                                    <a href="#logistics" class="text-base text-gray-400 hover:text-white">Logistics</a>
+                                </li>
+                                <li>
+                                    <a href="#ai" class="text-base text-gray-400 hover:text-white">AI</a>
+                                </li>
+                                <li>
+                                    <a href="#materials" class="text-base text-gray-400 hover:text-white">Materials</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Company</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="about.html" class="text-base text-gray-400 hover:text-white">About</a>
+                                </li>
+                                <li>
+                                    <a href="blog.html" class="text-base text-gray-400 hover:text-white">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="careers.html" class="text-base text-gray-400 hover:text-white">Careers</a>
+                                </li>
+                                <li>
+                                    <a href="contact.html" class="text-base text-gray-400 hover:text-white">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:grid md:grid-cols-2 md:gap-8">
+                        <div>
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Legal</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Privacy</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Terms</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">GDPR</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase">Resources</h3>
+                            <ul class="mt-4 space-y-4">
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Tutorials</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">API Reference</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-base text-gray-400 hover:text-white">Community</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8">
+                <p class="text-base text-gray-400 text-center">
+                    &copy; 2023 Awen Technologies. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        VANTA.NET({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x111827,
+            points: 12.00,
+            maxDistance: 22.00,
+            spacing: 18.00
+        })
+    </script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
