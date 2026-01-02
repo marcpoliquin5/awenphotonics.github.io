@@ -28,19 +28,22 @@
             color: #3B82F6;
         }
     </style>
+    <link rel="stylesheet" href="assets/motion.css">
 </head>
 <body class="font-sans antialiased">
     <div id="vanta-bg" class="fixed inset-0 z-0"></div>
     
     <!-- Navigation -->
-    <nav class="relative z-10 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm motion-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
-                        <i data-feather="cpu" class="h-8 w-8 text-blue-600"></i>
-                            <span class="ml-2 text-xl font-bold text-gray-900">Awen</span>
-                        </div>
+                        <a href="index.html" class="brand-lockup inline-flex items-center gap-3 no-underline">
+                            <span class="brand-mark inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-semibold text-sm">AW</span>
+                            <span class="brand-wordmark ml-2 text-xl font-bold text-gray-900 tracking-wide">Awen</span>
+                        </a>
+                    </div>
 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <a href="#" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
                         <a href="products.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Products</a>
@@ -61,7 +64,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 pt-24 pb-20 px-4 sm:px-6 lg:pt-32 lg:pb-28 lg:px-8">
+    <section class="relative z-10 pt-24 pb-20 px-4 sm:px-6 lg:pt-32 lg:pb-28 lg:px-8 reveal">
+        <div class="hero-gradient" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto">
             <div class="text-center">
                 <h1 class="text-4xl tracking-tight font-extrabold text-white hero-text sm:text-5xl md:text-6xl">
@@ -88,7 +92,7 @@
     </section>
 
     <!-- Moore's Law Section -->
-    <section class="relative z-10 py-12 bg-white">
+    <section id="computational-crisis" class="relative z-10 py-12 bg-white reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:text-center">
                 <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">The Computational Crisis</h2>
@@ -146,7 +150,7 @@
     </section>
 
     <!-- Product Highlight -->
-    <section class="relative z-10 py-16 bg-gray-50">
+    <section class="relative z-10 py-16 bg-gray-50 reveal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
                 <div>
@@ -267,6 +271,28 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="brand-bar bg-gray-50 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-sm text-gray-600">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="brand-mark inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-600 text-white font-semibold text-sm">AW</span>
+                    <div>
+                        <div class="font-semibold text-gray-900">Awen</div>
+                        <div class="text-xs text-gray-500">Photonic Quantum Software</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-mono text-xs text-gray-500">Typography: Inter / System UI · Spacing: 8/16/24</span>
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center gap-4 text-xs text-gray-500">
+                    <div>Primary: <span class="inline-block w-4 h-4 bg-blue-600 rounded ml-2"></span></div>
+                    <div>Accent: <span class="inline-block w-4 h-4 bg-blue-300 rounded ml-2"></span></div>
                 </div>
             </div>
         </div>
@@ -397,6 +423,12 @@
             maxDistance: 22.00,
             spacing: 18.00
         })
+    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="assets/motion.js"></script>
+    <script>
+        feather.replace();
     </script>
     <script>
         feather.replace();

@@ -1,0 +1,88 @@
+/* Motion system tokens and utilities */
+:root{
+  --motion-duration: 650ms;
+  --motion-short: 320ms;
+  --motion-easing: cubic-bezier(.2,.9,.2,1);
+  --brand-blue: #0ea5e9; /* Tailwind sky-500-ish */
+  --glass-bg: rgba(255,255,255,0.75);
+}
+
+/* Reveal utility (fade + translate) */
+.reveal{
+  opacity:0;
+  transform: translateY(16px);
+  will-change: transform, opacity;
+}
+.reveal.is-revealed{
+  opacity:1;
+  transform:none;
+  transition: opacity var(--motion-duration) var(--motion-easing), transform var(--motion-duration) var(--motion-easing);
+}
+
+/* Hero subtle animated gradient */
+.hero-gradient{
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(120deg, rgba(2,6,23,0.85), rgba(3,105,161,0.35));
+  background-size: 400% 400%;
+  animation: gradient-anim 18s ease-in-out infinite;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+@keyframes gradient-anim{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hero-gradient{ animation: none !important; }
+  nav.motion-nav a::after{ transition: none !important; transform: none !important; }
+  .solution-card:hover, .software-card:hover{ transform:none !important; box-shadow: none !important }
+  .reveal{ transition: none !important; opacity:1 !important; transform:none !important }
+}
+
+/* Sticky glass navbar styling + active underline */
+nav.motion-nav{
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+}
+nav.motion-nav a{position:relative}
+nav.motion-nav a::after{
+  content:'';
+  position:absolute;
+  left:0; right:0; bottom:-6px;
+  height:2px;
+  background:var(--brand-blue);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform var(--motion-short) var(--motion-easing);
+}
+nav.motion-nav a:hover::after, nav.motion-nav a.active::after{transform: scaleX(1)}
+
+/* Card hover with softening shadow using motion tokens */
+.solution-card, .software-card{
+  transition: transform var(--motion-short) var(--motion-easing), box-shadow var(--motion-short) var(--motion-easing);
+  will-change: transform, box-shadow;
+}
+.solution-card:hover, .software-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -20px rgba(2,6,23,0.5), 0 10px 20px -10px rgba(2,6,23,0.25);
+}
+
+/* Brand lockup */
+.brand-lockup{ text-decoration:none }
+.brand-wordmark{ font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; letter-spacing:0.01em }
+
+/* Simple responsive timeline */
+.timeline{display:flex;flex-direction:column;gap:12px}
+.timeline .step{display:flex;gap:12px;align-items:flex-start}
+.timeline .marker{min-width:40px;height:40px;border-radius:8px;background:var(--brand-blue);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:600}
+
+/* Accessibility & performance hints */
+.reveal[aria-hidden="true"]{visibility:hidden}
+
+/* Small helpers */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
