@@ -64,10 +64,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative z-10 pt-24 pb-20 px-4 sm:px-6 lg:pt-32 lg:pb-28 lg:px-8 reveal">
+    <section class="relative z-10 pt-24 pb-20 px-4 sm:px-6 lg:pt-32 lg:pb-28 lg:px-8 reveal overflow-hidden">
+        <div class="hero-lottie-wrapper" aria-hidden="true">
+            <div id="hero-lottie" class="hero-lottie-canvas"></div>
+        </div>
         <div class="hero-gradient" aria-hidden="true"></div>
         <div class="max-w-7xl mx-auto">
-            <div class="text-center">
+            <div class="text-center hero-content">
                 <h1 class="text-4xl tracking-tight font-extrabold text-white hero-text sm:text-5xl md:text-6xl">
                     <span class="block">Beyond Moore's Law</span>
                     <span class="block text-blue-400">Photonic Quantum Computing</span>
@@ -427,6 +430,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="assets/motion.js"></script>
+    <script type="module" defer src="assets/hero-lottie.js"></script>
     <script>
         feather.replace();
     </script>

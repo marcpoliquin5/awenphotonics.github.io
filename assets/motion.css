@@ -36,6 +36,41 @@
   100%{background-position:0% 50%}
 }
 
+/* Lottie hero background */
+.hero-lottie-wrapper{
+  position:absolute;
+  inset:0;
+  z-index:-1; /* sits behind content, above gradient */
+  pointer-events:none;
+  overflow:hidden;
+}
+.hero-lottie-canvas{
+  width:100%;
+  height:100%;
+  transform: translateZ(0);
+  opacity:0.32; /* subtle */
+  filter: blur(3px) saturate(110%) brightness(105%);
+  will-change: transform, opacity;
+}
+/* When prefers reduced motion, hide the animation and render a static fallback */
+.hero-lottie-fallback{ /* applied to the section */
+  --fallback-opacity: 0.18;
+}
+.hero-lottie-fallback .hero-lottie-canvas{ display:none; }
+.hero-lottie-fallback::before{
+  content:'';
+  position:absolute; inset:0; z-index:-1;
+  background: linear-gradient(180deg, rgba(6,8,23,0.5), rgba(3,105,161,0.2));
+  opacity:var(--fallback-opacity);
+  filter: blur(6px);
+  pointer-events:none;
+}
+/* Ensure gradient sits behind the lottie wrapper */
+.hero-gradient{ z-index:-2 }
+
+/* Make sure hero content is above the animation */
+.hero-content{ position:relative; z-index:2 }
+
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .hero-gradient{ animation: none !important; }
