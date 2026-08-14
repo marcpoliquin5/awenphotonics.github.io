@@ -1,18 +1,22 @@
-# Awen Photonics — static site build
+# AWEN public research site
 
-This repository is a plain static site (HTML + CSS). The repository contains a small build helper to produce a production-ready `dist/` folder.
+This repository builds the static status site for AWEN photonics research
+software. Public copy is deliberately limited to repository-verifiable
+implementation and availability statements.
 
-Commands
+## Build and validate
 
-Install Node (>=14) and run:
+Install a supported Node.js release, then run:
 
 ```bash
-node --version
-npm run build      # create dist/
-npm run start      # serve dist/ on http://localhost:8080 (uses npx http-server)
+npm run check:content
+npm run build
 ```
 
-Notes
+The build emits only the public HTML pages and stylesheet to `dist/`. The content
+check rejects unsupported numerical/comparative sales patterns, requires a status
+disclosure on every page, and rejects broken local links. Pull requests also use
+the content-review checklist for claims that require human source evaluation.
 
-- The `build` script copies project files into `dist/` and performs minimal HTML/CSS whitespace minification.
-- You can publish `dist/` to GitHub Pages or any static host.
+See `CONTENT_AUDIT.md` for the complete disposition of the site's former product,
+benchmark, customer, pricing, roadmap, and research assertions.

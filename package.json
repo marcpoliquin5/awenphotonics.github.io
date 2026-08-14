@@ -4,6 +4,7 @@
   "description": "Build tools for the awenphotonics.github.io static site",
   "scripts": {
     "build": "node scripts/build.js",
+    "check:content": "node scripts/check-content-claims.js",
     "start": "npx http-server dist -p 8080 --silent"
   },
   "engines": {
