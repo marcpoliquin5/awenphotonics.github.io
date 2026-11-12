@@ -1,22 +1,36 @@
-# AWEN public research site
+# AWEN status site
 
-This repository builds the static status site for AWEN photonics research
-software. Public copy is deliberately limited to repository-verifiable
-implementation and availability statements.
+Static status pages for [AWEN](https://github.com/marcpoliquin5/awen), an experimental compiler and runtime for photonic computing. Live at <https://marcpoliquin5.github.io/awenphotonics.github.io/>.
 
-## Build and validate
+The site is four hand-written HTML pages and one stylesheet, with no framework and no runtime JavaScript. The fuller interactive site is [awen-labs](https://github.com/marcpoliquin5/awen-labs).
 
-Install a supported Node.js release, then run:
+## Pages
+
+| File | Page |
+|---|---|
+| `index.html` | Status: what the project is and what is available |
+| `products.html` | Software: what the repository contains |
+| `solutions.html` | Exploration: research directions |
+| `research.html` | Evidence: what must exist before a performance claim is published |
+
+## Build and check
+
+Requires Node.js. The build and check scripts have no dependencies; `npm start` fetches `http-server` through `npx`.
 
 ```bash
-npm run check:content
-npm run build
+npm run check:content   # lint the public copy
+npm run build           # copy the pages and stylesheet to dist/
+npm start               # serve dist/ at http://localhost:8080
 ```
 
-The build emits only the public HTML pages and stylesheet to `dist/`. The content
-check rejects unsupported numerical/comparative sales patterns, requires a status
-disclosure on every page, and rejects broken local links. Pull requests also use
-the content-review checklist for claims that require human source evaluation.
+`check:content` is a small script ([`scripts/check-content-claims.js`](scripts/check-content-claims.js)) that fails the build if a page:
 
-See `CONTENT_AUDIT.md` for the complete disposition of the site's former product,
-benchmark, customer, pricing, roadmap, and research assertions.
+- contains a number with a performance unit, a price, or comparative wording such as "faster" or "outperforms",
+- is missing its status notice, or
+- links to a local file that does not exist.
+
+It runs on every pull request, so copy changes cannot merge with an unsupported claim or a broken link.
+
+## Deployment
+
+Pushing to `main` publishes the site with GitHub Pages (`.github/workflows/static.yml`).
